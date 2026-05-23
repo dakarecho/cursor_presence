@@ -6,13 +6,7 @@ This is a self-contained Electron desktop app (hospital staff attendance tracker
 
 ### Running the application
 
-- **Dev mode**: The `npm run dev` script has a known issue — `wait-on` references `dist-electron/main.js` but tsc outputs to `dist-electron/electron/main.js`. Work around by running:
-  ```bash
-  npx concurrently -k -n renderer,electron-ts,electron \
-    "vite --host 127.0.0.1" \
-    "tsc -p tsconfig.electron.json --watch --preserveWatchOutput" \
-    "wait-on tcp:5173 dist-electron/electron/main.js && electron ."
-  ```
+- **Dev mode**: Run `npm run dev` to start Vite + Electron concurrently.
 - Electron requires a display server. Use `DISPLAY=:1` (Xvfb is available in the Cloud VM).
 - dbus warnings in Electron output are expected in container environments and non-fatal.
 
