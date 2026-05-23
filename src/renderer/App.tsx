@@ -66,6 +66,11 @@ function App() {
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   const loadSnapshot = useCallback(async () => {
+    if (!window.hospitalApi) {
+      setMessage({ type: "error", text: "L'API hospitaliere n'est pas disponible. Lancez l'application via Electron (npm run dev) et non directement dans un navigateur." });
+      setLoading(false);
+      return;
+    }
     try {
       setLoading(true);
       setSnapshot(await window.hospitalApi.getSnapshot());
@@ -125,6 +130,10 @@ function App() {
   }, [monthlyRecords, snapshot]);
 
   async function runAction(action: () => Promise<DashboardSnapshot>, successText: string) {
+    if (!window.hospitalApi) {
+      setMessage({ type: "error", text: "L'API hospitaliere n'est pas disponible. Lancez l'application via Electron (npm run dev)." });
+      return;
+    }
     try {
       setBusy(true);
       setMessage(null);
