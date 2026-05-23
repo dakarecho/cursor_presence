@@ -413,7 +413,7 @@ export class HospitalDatabase {
     });
   }
 
-  private query<T extends Record<string, unknown>>(sql: string, params?: SqlParams): T[] {
+  private query<T>(sql: string, params?: SqlParams): T[] {
     const result = this.ensureDb().exec(sql, params);
     if (result.length === 0) {
       return [];
@@ -423,7 +423,7 @@ export class HospitalDatabase {
       result[0].columns.reduce<SqlRow>((row, column, index) => {
         row[column] = values[index];
         return row;
-      }, {}) as T
+      }, {}) as unknown as T
     );
   }
 
