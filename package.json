@@ -2,7 +2,7 @@
   "name": "pointage-hopital-senegal",
   "version": "1.0.0",
   "description": "Application desktop Electron de gestion de pointage hospitalier adaptee au systeme sanitaire senegalais.",
-  "main": "dist-electron/main.js",
+  "main": "dist-electron/electron/main.js",
   "scripts": {
     "dev": "concurrently -k -n renderer,electron-ts,electron \"vite --host 127.0.0.1\" \"tsc -p tsconfig.electron.json --watch --preserveWatchOutput\" \"wait-on tcp:5173 dist-electron/main.js && electron .\"",
     "build": "tsc --noEmit && tsc -p tsconfig.electron.json && vite build",

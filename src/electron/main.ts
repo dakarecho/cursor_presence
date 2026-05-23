@@ -33,7 +33,7 @@ function createWindow(): void {
   });
 
   if (app.isPackaged) {
-    mainWindow.loadFile(path.join(__dirname, "..", "dist", "index.html"));
+    mainWindow.loadFile(path.join(__dirname, "..", "..", "dist", "index.html"));
   } else {
     mainWindow.loadURL("http://127.0.0.1:5173");
   }
