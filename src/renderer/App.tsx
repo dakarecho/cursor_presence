@@ -4,7 +4,6 @@ import {
   CheckCircle2,
   ClipboardList,
   Clock3,
-  Database,
   Download,
   FileSpreadsheet,
   HeartPulse,
@@ -264,13 +263,6 @@ function App() {
             </p>
           </div>
 
-          <div className="absolute bottom-5 left-5 right-5 rounded-3xl bg-slate-950 p-4 text-white">
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              <Database className="h-4 w-4 text-hospital-100" />
-              Base embarquee sql.js
-            </div>
-            <p className="mt-2 break-all text-xs leading-5 text-slate-300">{snapshot.databasePath}</p>
-          </div>
         </aside>
 
         <main className="space-y-5">
